@@ -1,17 +1,15 @@
 package ru.tinkoff.fintech.service.notification
 
+import kotlin.math.min
+
 class CardNumberMaskerImpl : CardNumberMasker {
 
     override fun mask(cardNumber: String, maskChar: Char, start: Int, end: Int): String {
-        if (cardNumber.isEmpty() || start == end) {
-            return cardNumber
-        }
+        require(start <= end) { "Start index cannot be greater than end index" }
 
-        if (start > end) {
-            throw Exception("Start index cannot be greater than end index")
-        }
+        val beginIndex = min(start, cardNumber.length)
+        val finishIndex = min(end, cardNumber.length)
 
-        val range = if (end > cardNumber.length) cardNumber.length else end
-        return cardNumber.replaceRange(start, range, maskChar.toString().repeat(range - start))
+        return cardNumber.replaceRange(beginIndex, finishIndex, maskChar.toString().repeat(finishIndex - beginIndex))
     }
 }
