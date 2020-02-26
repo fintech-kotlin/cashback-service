@@ -59,4 +59,18 @@ class CardNumberMaskerImplTest {
         val maskedCardNumber = observable.mask(cardNumber = CARD_NUMBER, start = 4, end = 4)
         assertEquals(CARD_NUMBER, maskedCardNumber)
     }
+
+    @Test
+    fun `test masking with start index equal or greater then card number length`() {
+        var maskedCardNumber = observable.mask(cardNumber = CARD_NUMBER, start = 20, end = 25)
+        assertEquals(CARD_NUMBER, maskedCardNumber)
+        maskedCardNumber = observable.mask(cardNumber = CARD_NUMBER, start = 16, end = 20)
+        assertEquals(CARD_NUMBER, maskedCardNumber)
+    }
+
+    @Test
+    fun `test masking last digit with #`() {
+        val maskedCardNumber = observable.mask(cardNumber = CARD_NUMBER, start = 15, end = 16)
+        assertEquals("415537330814535#", maskedCardNumber)
+    }
 }
