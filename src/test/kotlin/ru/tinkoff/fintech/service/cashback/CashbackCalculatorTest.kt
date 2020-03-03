@@ -7,8 +7,8 @@ import java.time.LocalDate
 import java.time.Month
 
 class CashbackCalculatorTest {
-
-    private val observable = CashbackCalculatorImpl()
+    private val accessory = CashbackRulesImpl()
+    private val observable = CashbackCalculatorImpl(accessory)
 
     @Test
     fun `cashBack is equals 10 for first transaction sum 1000 and black loyalty program`() {
