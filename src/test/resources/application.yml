@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db
+    username: sa
+    password: sa
+
+paimentprocessing:
+  kafka:
+    consumer:
+      bootstrapServers: ${spring.embedded.kafka.brokers}
+      groupId: testGroup
+      topic: testTopic
+
