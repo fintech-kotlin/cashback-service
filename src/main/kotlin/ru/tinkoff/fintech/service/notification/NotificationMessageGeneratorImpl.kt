@@ -7,6 +7,11 @@ class NotificationMessageGeneratorImpl(
 ) : NotificationMessageGenerator {
 
     override fun generateMessage(notificationMessageInfo: NotificationMessageInfo): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return """
+            Уважаемый, ${notificationMessageInfo.name}!
+            Спешим Вам сообщить, что на карту ${cardNumberMasker.mask(notificationMessageInfo.cardNumber)}
+            начислен cashback в размере ${notificationMessageInfo.cashback}
+            за категорию ${notificationMessageInfo.category}.
+            Спасибо за покупку ${notificationMessageInfo.transactionDate}""".trimIndent()
     }
 }
