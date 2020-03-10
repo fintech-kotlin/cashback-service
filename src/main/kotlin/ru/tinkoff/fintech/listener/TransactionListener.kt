@@ -1,10 +1,17 @@
 package ru.tinkoff.fintech.listener
 
-class TransactionListener() {
+import com.fasterxml.jackson.databind.ObjectMapper
+import org.springframework.kafka.annotation.KafkaListener
+import org.springframework.stereotype.Component
+import ru.tinkoff.fintech.model.Transaction
+import ru.tinkoff.fintech.service.processor.TransactionProcessor
 
+@Component
+class TransactionListener(private val transactionProcessor: TransactionProcessor) {
+
+    @KafkaListener(topics = ["\${spring.kafka.consumer.topic}"])
     fun onMessage(message: String) {
-        TODO("Implement it")
+        val transaction = ObjectMapper().readValue<Transaction>(message, Transaction::class.java)
+        transactionProcessor.process(transaction)
     }
 }
-
-

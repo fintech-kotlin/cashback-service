@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ****
+    username: ****
+    password: ****
+  kafka:
+    consumer:
+      bootstrapServers: 40.69.78.245:19092
+      groupId: cashback
+      topic: transactions
+
+paimentprocessing:
+  sign: zavyalov
+  uri:
+    card-info: http://****/card-service/api/v1/card/{id}
+    client-info: http://****/client-service/api/v1/client/{id}
+    loyalty-info: http://****/client-service/api/v1/client/{id}
+    notification: http://****/notification-service/api/v1/client/{id}/message
