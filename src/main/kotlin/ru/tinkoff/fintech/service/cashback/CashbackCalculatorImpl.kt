@@ -1,5 +1,6 @@
 package ru.tinkoff.fintech.service.cashback
 
+import org.springframework.stereotype.Service
 import ru.tinkoff.fintech.model.TransactionInfo
 import ru.tinkoff.fintech.service.cashback.rule.AllCashbackRule
 import ru.tinkoff.fintech.service.cashback.rule.BeerCashbackRule
@@ -23,6 +24,7 @@ private val CASHBACK_RULES = listOf(
     CashbackRule666()
 )
 
+@Service
 class CashbackCalculatorImpl : CashbackCalculator {
 
     override fun calculateCashback(transactionInfo: TransactionInfo): Double {

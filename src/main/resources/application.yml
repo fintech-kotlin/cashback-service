@@ -13,7 +13,7 @@ spring:
 paimentprocessing:
   sign: zavyalov
   uri:
-    card-info: http://****/card-service/api/v1/card/{id}
-    client-info: http://****/client-service/api/v1/client/{id}
-    loyalty-info: http://****/client-service/api/v1/client/{id}
-    notification: http://****/notification-service/api/v1/client/{id}/message
+    card-info: http://****/card-service/api/v1/card/
+    client-info: http://****/client-service/api/v1/client/
+    loyalty-info: http://****/client-service/api/v1/client/
+    notification: http://****/notification-service/api/v1/client/

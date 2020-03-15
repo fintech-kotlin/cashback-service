@@ -4,17 +4,17 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestClientException
 import org.springframework.web.client.RestTemplate
-import ru.tinkoff.fintech.model.Card
+import ru.tinkoff.fintech.model.Client
 
 @Service
-class CardServiceClientImpl(
+class ClientServiceImpl(
     private val restTemplate: RestTemplate,
-    @Value("\${paimentprocessing.uri.card-info}")
+    @Value("\${paimentprocessing.uri.client-info}")
     private val uri: String
-) : CardServiceClient {
+) : ClientService {
 
-    override fun getCard(id: String): Card {
-        val res = restTemplate.getForEntity("$uri/$id", Card::class.java)
+    override fun getClient(id: String): Client {
+        val res = restTemplate.getForEntity("$uri/$id", Client::class.java)
         if (!res.statusCode.is2xxSuccessful) {
             throw RestClientException("Incorrect status: ${res.statusCodeValue}")
         }
