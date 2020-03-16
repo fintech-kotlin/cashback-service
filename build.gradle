@@ -16,13 +16,6 @@ repositories {
     jcenter()
 }
 
-sourceSets {
-    main.kotlin.srcDirs = ['src/main/kotlin']
-    main.java.srcDirs = ['src/main/kotlin']
-    test.kotlin.srcDirs = ['src/test/kotlin']
-    test.java.srcDirs = ['src/test/kotlin']
-}
-
 ext {
     springBootVersion = '2.1.0.RELEASE'
     springCloudVersion = 'Greenwich.SR4'
@@ -55,8 +48,8 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
 
     // test
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.1'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.0'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.0'
     testCompile group: 'com.nhaarman', name: 'mockito-kotlin', version: '1.6.0'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     // kafka test
